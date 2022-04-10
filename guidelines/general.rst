@@ -47,4 +47,20 @@ When using more than one programming language in your project, please update the
  Version control
 -----------------
 
-TODO: Git commits
+`git <https://git-scm.com/>`_ has to be used for all projects.
+The `master` (or `main`) branch has to pass all tests at all times.
+For experimental features refer to the `develop` branch.
+Unfinished features are to be kept in respective `feature/xyz` branches.
+Every commit has to come with its own tests.
+At least all features have to provide tests before merging.
+Refer to the guidelines for tests for your respective language.
+
+Always follow `the seven rules of a great Git commit message <https://cbea.ms/git-commit/#seven-rules>`_:
+
+* Separate subject from body with a blank line
+* Limit the subject line to 50 characters
+* Capitalize the subject line
+* Do not end the subject line with a period
+* Use the imperative mood in the subject line
+* Wrap the body at 72 characters
+* Use the body to explain what and why vs. how
