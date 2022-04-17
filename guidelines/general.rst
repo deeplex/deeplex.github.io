@@ -49,13 +49,26 @@ When using more than one programming language in your project, please update the
 
 `git <https://git-scm.com/>`_ has to be used for all projects.
 The `master` (or `main`) branch has to pass all tests at all times.
-For experimental features refer to the `develop` branch.
-Unfinished features are to be kept in respective `feature/xyz` branches.
-If some features are dependending on each other, but have separate PRs, specify respective branches as `feature/xyz_abc`.
 
-Every commit has to come with its own tests.
-At least all features have to provide tests before merging.
+To make changes first create an issue in the respective github repository.
+Create a branch using the respective:
+`Create a branch for this issue or link a pull request.` button.
+
+.. image:: /_static/images/github_create_branch_from_issue.png
+    :align: center
+
+Prepend `dev/` for your branch name.
+So for example a valid branch name is `dev/1_first_issue`.
+For branches consisting of many issues create an epic issue.
+Refer to GitHub templates for more information.
+
+.. note:: GitHub templates are automatically generated using *copier* for your project.
+
 Refer to the guidelines for tests for your respective language.
+
+.. warning:: Every commit has to come with test coverage.
+
+For *work in progress* commits create a `wip/<author_name>` branch and do not forget to delete as soon as it is no longer up to date.
 
 Always follow `the seven rules of a great Git commit message <https://cbea.ms/git-commit/#seven-rules>`_:
 
