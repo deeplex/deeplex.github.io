@@ -51,6 +51,8 @@ When using more than one programming language in your project, please update the
 The `master` (or `main`) branch has to pass all tests at all times.
 For experimental features refer to the `develop` branch.
 Unfinished features are to be kept in respective `feature/xyz` branches.
+If some features are dependending on each other, but have separate PRs, specify respective branches as `feature/xyz_abc`.
+
 Every commit has to come with its own tests.
 At least all features have to provide tests before merging.
 Refer to the guidelines for tests for your respective language.
