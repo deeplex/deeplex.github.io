@@ -11,9 +11,11 @@ For projects different *copier* templates are provided.
 Usage is mandatory.
 For the installation of *copier*, refer to the `official documentation <./https://copier.readthedocs.io/en/latest/>`.
 
+.. warning:: `pip install copier` will install *copier==5.1.0* as of now. Use `pip install copier==v6.0.0b0` instead.
+
 Existing templates are:
 
-* `C++ library <./copier-cpp-template>`_
+* `C++ library <../copier-cpp-template>`_
 
 Whether you want to create a new project using a template or want to issue a new template, refer to the coding guidelines for your respective language..
 
