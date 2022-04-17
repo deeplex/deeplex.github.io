@@ -9,6 +9,8 @@
 
 For projects different *copier* templates are provided.
 Usage is mandatory.
+For the installation of *copier*, refer to the `official documentation <./https://copier.readthedocs.io/en/latest/>`.
+
 Existing templates are:
 
 * `C++ library <./copier-cpp-template>`_
