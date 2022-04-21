@@ -10,7 +10,7 @@
 The meta build system is *cmake* with the respecitve `CMakeLists.txt`.
 The basic `CMakeLists.txt` is provided by the *copier* template and should be adapted accordingly.
 
-The targetted C++ standard is *C++20*, as configured in the `CMakeLists.txt`.
+The C++ target standard is *C++20*, as configured in the `CMakeLists.txt`.
 Respective triplets for dependencies to respect that are included in the *copier* template.
 
 -----------------
@@ -45,19 +45,30 @@ Changes are prohibited. Violation implies termination.
  Compilation
 -------------
 
-Before compilation make sure to setup the `package manager <Package manager_>`_ and `build system <Build system_>`_.
+Before attempting to compile a project make sure to setup the
+`package manager <Package manager_>`_ and `build system <Build system_>`_.
 
-#########
- Windows
-#########
+The project needs to be configured with *CMake* first. This can either be done
+with the provided presets or manually (in which case I recommend
+`*ccmake* <ccmake docs>`_ or `*cmake-gui* <cmake-gui docs>`_). The presets live
+within :code:`CMakePresets.json` and can be supplemented with a :code:`CMakeUserPresets.json`.
+The presets can be used via the commandline like so
 
-TODO
+::
 
-#######
- Linux
-#######
+    cd $project-root
+    cmake --list-presets # lists all available presets
+    cmake --preset=x64-linux-gcc-debug . # configures dhe current project with the given prefix
+    cmake --build ./build/x64-linux-gcc-debug # builds the previously configured project
 
-TODO
+However, IDEs like Visual Studio and Visual Studio Code have integrated support
+for :code:`CMakePresets.json` (see `VS docs <vs preset docs>`_, `VS Code docs <vsc preset docs>`_
+and `this blog post <vs cmake preset announcement>`_).
+
+.. warning:: Note that if you do use the commandline, it is your responsibility
+    to ensure that the target compiler is reachable via :code:`$PATH`. On Windows
+    you probably have to run these commands from a Visual Studio command prompt.
+
 
 ######################
  ESP32 (Windows only)
@@ -82,3 +93,9 @@ If you only want to flash your program call `idf.py app-flash`.
 
 You can also call `idf.py app-flash monitor` to get terminal output of your application.
 
+
+.. _ccmake docs: https://cmake.org/cmake/help/latest/manual/ccmake.1.html
+.. _cmake-gui docs: https://cmake.org/cmake/help/latest/manual/cmake-gui.1.html
+.. _vs preset docs: https://docs.microsoft.com/en-us/cpp/build/cmake-presets-vs?view=msvc-170
+.. _vsc preset docs: https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md
+.. _vs cmake preset announcement: https://devblogs.microsoft.com/cppblog/cmake-presets-integration-in-visual-studio-and-visual-studio-code/
