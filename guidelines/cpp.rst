@@ -50,20 +50,21 @@ Before attempting to compile a project make sure to setup the
 
 The project needs to be configured with *CMake* first. This can either be done
 with the provided presets or manually (in which case I recommend
-`*ccmake* <ccmake docs>`_ or `*cmake-gui* <cmake-gui docs>`_). The presets live
+`ccmake <https://cmake.org/cmake/help/latest/manual/ccmake.1.html>`_ or `cmake-gui <https://cmake.org/cmake/help/latest/manual/cmake-gui.1.html>`_). The presets live
 within :code:`CMakePresets.json` and can be supplemented with a :code:`CMakeUserPresets.json`.
+The :code:`CMakePresets.json` is included in all copier templates concerning C++.
 The presets can be used via the commandline like so
 
 ::
 
     cd $project-root
     cmake --list-presets # lists all available presets
-    cmake --preset=x64-linux-gcc-debug . # configures dhe current project with the given prefix
+    cmake --preset=x64-linux-gcc-debug . # configures the current project with the given prefix
     cmake --build ./build/x64-linux-gcc-debug # builds the previously configured project
 
 However, IDEs like Visual Studio and Visual Studio Code have integrated support
-for :code:`CMakePresets.json` (see `VS docs <vs preset docs>`_, `VS Code docs <vsc preset docs>`_
-and `this blog post <vs cmake preset announcement>`_).
+for :code:`CMakePresets.json` (see `VS docs <https://docs.microsoft.com/en-us/cpp/build/cmake-presets-vs?view=msvc-170>`_, `VS Code docs <https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md>`_
+and `this blog post <https://devblogs.microsoft.com/cppblog/cmake-presets-integration-in-visual-studio-and-visual-studio-code/>`_).
 
 .. warning:: Note that if you do use the commandline, it is your responsibility
     to ensure that the target compiler is reachable via :code:`$PATH`. On Windows
@@ -92,10 +93,3 @@ If you only want to flash your program call `idf.py app-flash`.
 .. note:: `flash` and `app-flash` will build your project. You do not have to call both commands every time.
 
 You can also call `idf.py app-flash monitor` to get terminal output of your application.
-
-
-.. _ccmake docs: https://cmake.org/cmake/help/latest/manual/ccmake.1.html
-.. _cmake-gui docs: https://cmake.org/cmake/help/latest/manual/cmake-gui.1.html
-.. _vs preset docs: https://docs.microsoft.com/en-us/cpp/build/cmake-presets-vs?view=msvc-170
-.. _vsc preset docs: https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-presets.md
-.. _vs cmake preset announcement: https://devblogs.microsoft.com/cppblog/cmake-presets-integration-in-visual-studio-and-visual-studio-code/
