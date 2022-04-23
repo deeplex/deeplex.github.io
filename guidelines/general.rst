@@ -68,7 +68,7 @@ Refer to the guidelines for tests for your respective language.
 
 .. warning:: Every commit has to come with test coverage.
 
-For *work in progress* commits create a `wip/<author_name>` branch and do not forget to delete as soon as it is no longer up to date.
+For *work in progress* commits first check out appending `-wip/<author_name>` to your branch name and do not forget to delete that *wip* branch as soon as it is no longer up to date.
 
 Always follow `the seven rules of a great Git commit message <https://cbea.ms/git-commit/#seven-rules>`_:
 
