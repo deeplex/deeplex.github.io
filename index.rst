@@ -5,7 +5,10 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Guidelines:
+
+   guidelines/general.rst
+   guidelines/cpp.rst
 
 
 ----------
