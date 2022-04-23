@@ -7,6 +7,8 @@
    :maxdepth: 2
    :caption: Contents:
 
+   guidelines/cs.rst
+
 
 ----------
  Projects
