@@ -1,53 +1,43 @@
 name: GitHub Pages
 
 on:
-    push:
-        branches:
-            - master
-    pull_request:
+  push:
+    branches:
+      - master
+  pull_request:
+  merge_group:
 
 jobs:
-    deploy:
-        runs-on: ubuntu-20.04
-        concurrency:
-            group: ${{ github.workflow }}-${{ github.ref }}
-        steps:
-            - uses: actions/checkout@v2
+  build:
+    name: Build with Sphinx
+    runs-on: ubuntu-22.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
 
-            - name: Setup Python
-              uses: actions/setup-python@v2
-              with:
-                  python-version: "3.9"
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: 'pipenv'
+          cache-dependency-path: Pipfile.lock
 
-            - name: Upgrade pip
-              run: |
-                  # install pip=>20.1 to use "pip cache dir"
-                  python3 -m pip install --upgrade pip
+      - name: Install pipenv
+        run: python3 -m pip install pipenv
 
-            - name: Get pip cache dir
-              id: pip-cache
-              run: echo "::set-output name=dir::$(pip cache dir)"
+      - name: Install dependencies
+        run: python3 -m pipenv sync
 
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.pip-cache.outputs.dir }}
-                  key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-
+      - run: python3 -m pipenv run sphinx-build . out
 
-            - name: Install dependencies
-              run: python3 -m pip install -r ./requirements.txt
+      - name: Provide CNAMEs
+        if: github.ref == 'refs/heads/master'
+        run: cp ./CNAME ./out/CNAME
 
-            - run: sphinx-build . out
-
-            - name: Provide CNAMEs
-              if: github.ref == 'refs/heads/master'
-              run: cp ./CNAME ./out/CNAME
-
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              if: github.ref == 'refs/heads/master'
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./out
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
