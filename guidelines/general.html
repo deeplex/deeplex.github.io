@@ -200,69 +200,81 @@
 <h2><em>copier</em> templates<a class="headerlink" href="#copier-templates" title="Permalink to this heading">#</a></h2>
 <p>For projects different <em>copier</em> templates are provided.
 Usage is mandatory.
-For the installation of <em>copier</em>, refer to the <cite>official documentation &lt;./https://copier.readthedocs.io/en/latest/&gt;</cite>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><cite>pip install copier</cite> will install <em>copier==5.1.0</em> as of now. Use <cite>pip install copier==v6.0.0b0</cite> instead.</p>
-</div>
+For the installation of <em>copier</em>, refer to the <a class="reference external" href="https://copier.readthedocs.io/en/latest/#installation">official documentation</a>.</p>
 <p>Existing templates are:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="../copier-cpp-template">C++ library</a></p></li>
+<li><p><a class="reference external" href="https://github.com/deeplex/copier-cpp">C++ library</a></p></li>
 </ul>
-<p>Whether you want to create a new project using a template or want to issue a new template, refer to the coding guidelines for your respective language..</p>
+<p>Whether you want to create a new project using a template or want to issue a new template, refer to the coding guidelines for your respective language.</p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
 <p>Documentation is mandatory and missing documentation embarassing.
 The layout for documentation is provided by our <em>copier</em> documentation template.
 It is automatically included by all other templates.
-The respective content is created in <cite>docs</cite>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If the documentation is created using the <em>copier</em> script, the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">domain</a> is not set.</p>
-</div>
+The respective content is located in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> subfolder.</p>
 <p>Documentation is generated using <a class="reference external" href="https://www.sphinx-doc.org/">sphinx</a>.
-The <cite>requirements.txt</cite> to install the required packages is provided with the <em>copier</em> template for documentation and therefore in the <cite>docs</cite> folder of your project.</p>
-<p>Then run (in your project root)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">./</span><span class="n">docs</span> <span class="o">/</span><span class="n">docs</span><span class="o">/</span><span class="n">build</span>
+We use <a class="reference external" href="https://pipenv.pypa.io/en/latest/">pipenv</a> to manage the required tools to build the documentation and provide language server support for VSCode.
+<em>pipenv</em> can be installed with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">pipenv</span>
 </pre></div>
 </div>
-<p>To create the documentation.
-Your documentation is generated as <cite>./docs/build/index.html</cite> respectively.</p>
-<p>When using more than one programming language in your project, please update the <cite>conf.py</cite> to include the respective <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">domain</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code> to install the required packages is provided with the <em>copier</em> template for documentation and therefore in the <cite>docs</cite> folder of your project.
+You need to create the virtual python environment like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="c1"># if you want the esbonio LSP for the reStructuredText VSCode extension</span>
+<span class="n">pipenv</span> <span class="n">sync</span> <span class="o">--</span><span class="n">dev</span>
+<span class="c1"># otherwise just</span>
+<span class="n">pipenv</span> <span class="n">sync</span>
+</pre></div>
+</div>
+<p>Afterwards you can build the documentation using the commandline tools:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">docs</span>
+<span class="n">pipenv</span> <span class="n">run</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">.</span> <span class="o">./</span><span class="n">build</span>
+</pre></div>
+</div>
+<p>The documentation is generated as <cite>./docs/build/index.html</cite> respectively.</p>
+<p>The <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext">reStructuredText VSCode extension</a> in conjunction with the <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">MS Python VSCode extension</a> can be used to provide language support for <code class="docutils literal notranslate"><span class="pre">.rst</span></code> files.
+First you need to connect the extensions to the previously created virtual environment which can be achieved by opening <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> and selecting the appropriate <a class="reference external" href="https://github.com/Microsoft/vscode-python#set-up-your-environment">Python interpreter in the status bar</a>.
+Now you can click on the <code class="docutils literal notranslate"><span class="pre">Use</span> <span class="pre">docutils</span></code> entry in the status bar and set the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder as the sphinx config to be used.</p>
+<p>When using more than one programming language in your project, be sure to include the respective <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">domain</a> in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> script.</p>
 </section>
 <section id="version-control">
 <h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://git-scm.com/">git</a> has to be used for all projects.
-The <cite>master</cite> (or <cite>main</cite>) branch has to pass all tests at all times.</p>
+The <code class="docutils literal notranslate"><span class="pre">master</span></code> (or <code class="docutils literal notranslate"><span class="pre">main</span></code>) branch has to pass all tests at all times.</p>
 <p>To make changes first create an issue in the respective github repository.
 Create a branch using the respective:
 <cite>Create a branch for this issue or link a pull request.</cite> button.</p>
 <img alt="../_images/github_create_branch_from_issue.png" class="align-center" src="../_images/github_create_branch_from_issue.png" />
-<p>Prepend <cite>dev/</cite> for your branch name.
-So for example a valid branch name is <cite>dev/1_first_issue</cite>.
-For branches consisting of many issues create an epic issue.
-Refer to GitHub templates for more information.</p>
+<p>Prepend <code class="docutils literal notranslate"><span class="pre">dev/</span></code> for your branch name.
+So for example <cite>dev/1-first_issue</cite> would be a valid branch name.
+For branches consisting of many issues create an issue epic.
+Refer to GitHub Issue templates for more information.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>GitHub templates are automatically generated using <em>copier</em> for your project.</p>
+<p>GitHub Issue templates are automatically generated using <em>copier</em> for your project.</p>
 </div>
 <p>Refer to the guidelines for tests for your respective language.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Every commit has to come with test coverage.</p>
+<p>Every commit has to come with sufficient test coverage.</p>
 </div>
-<p>For <em>work in progress</em> commits first check out appending <cite>-wip/&lt;author_name&gt;</cite> to your branch name and do not forget to delete that <em>wip</em> branch as soon as it is no longer up to date.</p>
-<p>Always follow <a class="reference external" href="https://cbea.ms/git-commit/#seven-rules">the seven rules of a great Git commit message</a>:</p>
-<ul class="simple">
+<p>You may push <code class="docutils literal notranslate"><span class="pre">wip/&lt;author_name&gt;/&lt;issue_id&gt;-&lt;description&gt;</span></code> style branches for <em>work in progress</em> commits.
+Do not forget to delete your <em>wip</em> branch as soon as it becomes outdated.</p>
+<p>Commit messages should be structured according to the <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional Commits</a> standard with the <a class="reference external" href="https://github.com/angular/angular/blob/48aa96ea13ebfadf/CONTRIBUTING.md#type">angular type list</a>.
+Always follow <a class="reference external" href="https://cbea.ms/git-commit/#seven-rules">the seven rules of a great Git commit message</a>:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Separate subject from body with a blank line</p></li>
-<li><p>Limit the subject line to 50 characters</p></li>
+<li><p>Limit the subject line to about 50 characters</p></li>
 <li><p>Capitalize the subject line</p></li>
 <li><p>Do not end the subject line with a period</p></li>
 <li><p>Use the imperative mood in the subject line</p></li>
 <li><p>Wrap the body at 72 characters</p></li>
-<li><p>Use the body to explain what and why vs. how</p></li>
+<li><p>Use the body to explain the motivitation and constraints of the change</p></li>
 </ul>
+</div></blockquote>
 </section>
 </section>
 
