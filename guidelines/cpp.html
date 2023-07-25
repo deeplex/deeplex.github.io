@@ -1,15 +1,15 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="prev" title="General" href="general.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>C++ - deeplex documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
     
@@ -22,24 +22,28 @@
   --font-stack--monospace: Fira Code, Cascadia Code, "SFMono-Regular", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -147,7 +151,7 @@
   <span class="sidebar-brand-text">deeplex  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -168,7 +172,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -183,15 +195,15 @@
         </div>
         <article role="main">
           <section id="c">
-<h1>C++<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h1>
+<h1>C++<a class="headerlink" href="#c" title="Permalink to this heading">#</a></h1>
 <section id="build-system">
-<h2>Build system<a class="headerlink" href="#build-system" title="Permalink to this headline">#</a></h2>
+<h2>Build system<a class="headerlink" href="#build-system" title="Permalink to this heading">#</a></h2>
 <p>The meta build system is <code class="docutils literal notranslate"><span class="pre">CMake</span></code> with the respective <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>.
 The basic <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> is provided by the <code class="docutils literal notranslate"><span class="pre">copier</span></code> template and should be adapted accordingly.</p>
 <p>The C++ target standard is <code class="docutils literal notranslate"><span class="pre">C++20</span></code>, as configured in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code>. The <code class="docutils literal notranslate"><span class="pre">copier</span></code> template provides vcpkg triplets which enforces this for dependencies.</p>
 </section>
 <section id="package-manager">
-<h2>Package manager<a class="headerlink" href="#package-manager" title="Permalink to this headline">#</a></h2>
+<h2>Package manager<a class="headerlink" href="#package-manager" title="Permalink to this heading">#</a></h2>
 <p>The package manager of choice is <a class="reference external" href="https://vcpkg.io">vcpkg</a>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">vcpkg</span></code> is installed by cloning the <a class="reference external" href="https://github.com/microsoft/vcpkg">vcpkg repository</a>. Create an environment variable with variable name <code class="docutils literal notranslate"><span class="pre">VCPKG_ROOT</span></code> and variable value <code class="docutils literal notranslate"><span class="pre">path/to/vcpkg</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">copier</span></code> template provides a <code class="docutils literal notranslate"><span class="pre">vcpkg.json</span></code> manifest and a <code class="docutils literal notranslate"><span class="pre">vcpkg-configuration.json</span></code>. The vcpkg manifest contains rudimentary information about your project.
@@ -202,15 +214,15 @@ List your dependencies in the <code class="docutils literal notranslate"><span c
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">vcpkg</span></code> is hooked to <code class="docutils literal notranslate"><span class="pre">CMake</span></code> by a non intrusive toolchain file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">DEFINED</span> <span class="n">ENV</span><span class="p">{</span><span class="n">VCPKG_ROOT</span><span class="p">}</span> <span class="n">AND</span> <span class="n">NOT</span> <span class="n">DEFINED</span> <span class="n">CMAKE_TOOLCHAIN_FILE</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">CMAKE_TOOLCHAIN_FILE</span> <span class="s2">"$ENV</span><span class="si">{VCPKG_ROOT}</span><span class="s2">/scripts/buildsystems/vcpkg.cmake"</span>
-        <span class="n">CACHE</span> <span class="n">STRING</span> <span class="s2">""</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">CMAKE_TOOLCHAIN_FILE</span> <span class="s2">&quot;$ENV</span><span class="si">{VCPKG_ROOT}</span><span class="s2">/scripts/buildsystems/vcpkg.cmake&quot;</span>
+        <span class="n">CACHE</span> <span class="n">STRING</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">endif</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>If you need to use an actual toolchain file, you can provide it via <cite>VCPKG_CHAINLOAD_TOOLCHAIN_FILE &lt;https://vcpkg.io/en/docs/users/buildsystems/cmake-integration.html#using-multiple-toolchain-files&gt;</cite></p>
 </section>
 <section id="formatting">
-<h2>Formatting<a class="headerlink" href="#formatting" title="Permalink to this headline">#</a></h2>
+<h2>Formatting<a class="headerlink" href="#formatting" title="Permalink to this heading">#</a></h2>
 <p>The formatting is determined by the <code class="docutils literal notranslate"><span class="pre">.clang-format</span></code>, included in respective <code class="docutils literal notranslate"><span class="pre">copier</span></code> templates.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -218,7 +230,7 @@ List your dependencies in the <code class="docutils literal notranslate"><span c
 </div>
 </section>
 <section id="compilation">
-<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">#</a></h2>
+<h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this heading">#</a></h2>
 <p>Before attempting to compile a project make sure to setup the
 <a class="reference internal" href="#package-manager">package manager</a> and <a class="reference internal" href="#build-system">build system</a>.</p>
 <p>The project needs to be configured with <code class="docutils literal notranslate"><span class="pre">CMake</span></code> first. This can either be done
@@ -240,7 +252,7 @@ and <a class="reference external" href="https://devblogs.microsoft.com/cppblog/c
 to ensure that the target compiler is reachable via <code class="code docutils literal notranslate"><span class="pre">$PATH</span></code>. On Windows you probably have to run these commands from a Visual Studio command prompt.</p>
 </div>
 <section id="esp32-windows-only">
-<h3>ESP32 (Windows only)<a class="headerlink" href="#esp32-windows-only" title="Permalink to this headline">#</a></h3>
+<h3>ESP32 (Windows only)<a class="headerlink" href="#esp32-windows-only" title="Permalink to this heading">#</a></h3>
 <p>At first make sure to use the <a class="reference external" href="../copier-cpp-esp">correct template</a>.</p>
 <p>Clone <a class="reference external" href="https://github.com/espressif/esp-idf">this repository</a>.
 Call the <code class="docutils literal notranslate"><span class="pre">install.bat</span></code> file to install all requirements.</p>
@@ -269,7 +281,7 @@ If you only want to flash your program call <code class="docutils literal notran
         <div class="related-pages">
           
           <a class="prev-page" href="general.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -291,9 +303,7 @@ If you only want to flash your program call <code class="docutils literal notran
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -305,7 +315,7 @@ If you only want to flash your program call <code class="docutils literal notran
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -331,9 +341,8 @@ If you only want to flash your program call <code class="docutils literal notran
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>
 </html>

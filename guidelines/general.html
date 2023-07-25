@@ -1,15 +1,15 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="C++" href="cpp.html" /><link rel="prev" title="deeplex documentation" href="../index.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.02.14.1"/>
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
         <title>General - deeplex documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=a8f031f701c6af50c9919b48f173a5785af06fac" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=25ceb02ed1c46dc30f2321ff83e92799f69dfdb9" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     
     
@@ -22,24 +22,28 @@
   --font-stack--monospace: Fira Code, Cascadia Code, "SFMono-Regular", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   
   }
-  body[data-theme="dark"] {
-    --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
-  
-  }
-  @media (prefers-color-scheme: dark) {
-    body:not([data-theme="light"]) {
+  @media not print {
+    body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   
     }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
   }
 </style></head>
   <body>
+    
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
     
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
     <title>Contents</title>
@@ -147,7 +151,7 @@
   <span class="sidebar-brand-text">deeplex  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
-  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form>
@@ -168,7 +172,15 @@
   <div class="main">
     <div class="content">
       <div class="article-container">
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -183,9 +195,9 @@
         </div>
         <article role="main">
           <section id="general">
-<h1>General<a class="headerlink" href="#general" title="Permalink to this headline">#</a></h1>
+<h1>General<a class="headerlink" href="#general" title="Permalink to this heading">#</a></h1>
 <section id="copier-templates">
-<h2><em>copier</em> templates<a class="headerlink" href="#copier-templates" title="Permalink to this headline">#</a></h2>
+<h2><em>copier</em> templates<a class="headerlink" href="#copier-templates" title="Permalink to this heading">#</a></h2>
 <p>For projects different <em>copier</em> templates are provided.
 Usage is mandatory.
 For the installation of <em>copier</em>, refer to the <cite>official documentation &lt;./https://copier.readthedocs.io/en/latest/&gt;</cite>.</p>
@@ -200,7 +212,7 @@ For the installation of <em>copier</em>, refer to the <cite>official documentati
 <p>Whether you want to create a new project using a template or want to issue a new template, refer to the coding guidelines for your respective language..</p>
 </section>
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">#</a></h2>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h2>
 <p>Documentation is mandatory and missing documentation embarassing.
 The layout for documentation is provided by our <em>copier</em> documentation template.
 It is automatically included by all other templates.
@@ -220,13 +232,13 @@ Your documentation is generated as <cite>./docs/build/index.html</cite> respecti
 <p>When using more than one programming language in your project, please update the <cite>conf.py</cite> to include the respective <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html">domain</a>.</p>
 </section>
 <section id="version-control">
-<h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this headline">#</a></h2>
+<h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://git-scm.com/">git</a> has to be used for all projects.
 The <cite>master</cite> (or <cite>main</cite>) branch has to pass all tests at all times.</p>
 <p>To make changes first create an issue in the respective github repository.
 Create a branch using the respective:
 <cite>Create a branch for this issue or link a pull request.</cite> button.</p>
-<img alt="../_images/github_create_branch_from_issue.png" class="align-center" src="../_images/github_create_branch_from_issue.png"/>
+<img alt="../_images/github_create_branch_from_issue.png" class="align-center" src="../_images/github_create_branch_from_issue.png" />
 <p>Prepend <cite>dev/</cite> for your branch name.
 So for example a valid branch name is <cite>dev/1_first_issue</cite>.
 For branches consisting of many issues create an epic issue.
@@ -266,10 +278,10 @@ Refer to GitHub templates for more information.</p>
                 </div>
                 <div class="title">C++</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="../index.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -291,9 +303,7 @@ Refer to GitHub templates for more information.</p>
             
           </div>
           <div class="right-details">
-            <div class="icons">
-              
-            </div>
+            
           </div>
         </div>
         
@@ -305,7 +315,7 @@ Refer to GitHub templates for more information.</p>
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -327,9 +337,8 @@ Refer to GitHub templates for more information.</p>
     </aside>
   </div>
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     </body>
 </html>
