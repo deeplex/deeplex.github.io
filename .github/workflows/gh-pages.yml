@@ -7,39 +7,28 @@ on:
     pull_request:
 
 jobs:
-    deploy:
-        runs-on: ubuntu-20.04
+    build:
+        name: Build with Sphinx
+        runs-on: ubuntu-22.04
         concurrency:
             group: ${{ github.workflow }}-${{ github.ref }}
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
 
             - name: Setup Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v4
               with:
-                  python-version: "3.9"
+                  python-version: "3.11"
+                  cache: 'pipenv'
+                  cache-dependency-path: Pipfile.lock
 
-            - name: Upgrade pip
-              run: |
-                  # install pip=>20.1 to use "pip cache dir"
-                  python3 -m pip install --upgrade pip
-
-            - name: Get pip cache dir
-              id: pip-cache
-              run: echo "::set-output name=dir::$(pip cache dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.pip-cache.outputs.dir }}
-                  key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-                  restore-keys: |
-                      ${{ runner.os }}-pip-
+            - name: Install pipenv
+              run: python3 -m pip install pipenv
 
             - name: Install dependencies
-              run: python3 -m pip install -r ./requirements.txt
+              run: python3 -m pipenv sync
 
-            - run: sphinx-build . out
+            - run: python3 -m pipenv run sphinx-build . out
 
             - name: Provide CNAMEs
               if: github.ref == 'refs/heads/master'
