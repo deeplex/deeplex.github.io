@@ -1,42 +1,42 @@
 name: GitHub Pages
 
 on:
-    push:
-        branches:
-            - master
-    pull_request:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
-    build:
-        name: Build with Sphinx
-        runs-on: ubuntu-22.04
-        concurrency:
-            group: ${{ github.workflow }}-${{ github.ref }}
-        steps:
-            - uses: actions/checkout@v3
+  build:
+    name: Build with Sphinx
+    runs-on: ubuntu-22.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
 
-            - name: Setup Python
-              uses: actions/setup-python@v4
-              with:
-                  python-version: "3.11"
-                  cache: 'pipenv'
-                  cache-dependency-path: Pipfile.lock
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: 'pipenv'
+          cache-dependency-path: Pipfile.lock
 
-            - name: Install pipenv
-              run: python3 -m pip install pipenv
+      - name: Install pipenv
+        run: python3 -m pip install pipenv
 
-            - name: Install dependencies
-              run: python3 -m pipenv sync
+      - name: Install dependencies
+        run: python3 -m pipenv sync
 
-            - run: python3 -m pipenv run sphinx-build . out
+      - run: python3 -m pipenv run sphinx-build . out
 
-            - name: Provide CNAMEs
-              if: github.ref == 'refs/heads/master'
-              run: cp ./CNAME ./out/CNAME
+      - name: Provide CNAMEs
+        if: github.ref == 'refs/heads/master'
+        run: cp ./CNAME ./out/CNAME
 
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              if: github.ref == 'refs/heads/master'
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./out
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
