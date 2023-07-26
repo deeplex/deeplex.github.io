@@ -4,11 +4,12 @@
 ======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
+   :includehidden:
    :caption: Guidelines:
 
-   guidelines/general.rst
-   guidelines/cpp.rst
+   guidelines/general
+   guidelines/cpp
 
 
 ----------
@@ -16,6 +17,8 @@
 ----------
 
 * `concrete <./concrete>`_
+* `deeppack <./deeppack>`_
+* `deeplog <./deeplog>`_
 
 --------------------
  Indices and tables
